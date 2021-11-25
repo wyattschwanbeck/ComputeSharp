@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Octagrams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProteanClouds.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PyramidPattern.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeaAtNight.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TriangleGridContouring.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TwoTiledTruchet.cs" />
   </ItemGroup>

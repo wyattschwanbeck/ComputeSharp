@@ -24,7 +24,7 @@ public sealed class MainViewModel : ObservableObject
     /// </summary>
     public MainViewModel()
     {
-        this.isDynamicResolutionEnabled = true;
+        this.isDynamicResolutionEnabled = false;
         this.selectedResolutionScale = 100;
         this.selectedComputeShader = ComputeShaderOptions[0];
         this.selectedComputeShader.IsSelected = true;
@@ -78,6 +78,7 @@ public sealed class MainViewModel : ObservableObject
     /// </summary>
     public IReadOnlyList<ComputeShader> ComputeShaderOptions { get; } = new ComputeShader[]
     {
+            new ("Sea at night", new SeaAtNightRunner()),
             new("Colorful infinity", new ShaderRunner<ColorfulInfinity>(static time => new((float)time.TotalSeconds))),
             new("Extruded truchet", new ShaderRunner<ExtrudedTruchetPattern>(static time => new((float)time.TotalSeconds))),
             new("Fractal tiling", new ShaderRunner<FractalTiling>(static time => new((float)time.TotalSeconds))),

@@ -456,10 +456,6 @@ public sealed partial class ComputeShaderPanel
                 renderStopwatch = @this.renderStopwatch ??= new(),
                 frameStopwatch = Stopwatch.StartNew();
 
-            DynamicResolutionManager.Create(out DynamicResolutionManager frameTimeWatcher);
-
-            bool isDynamicResolutionEnabled = @this.isDynamicResolutionEnabled;
-
             // Start the initial frame separately, before the timer starts. This ensures that
             // resuming after a pause correctly renders the first frame at the right time.
             @this.OnUpdate(renderStopwatch.Elapsed);
@@ -472,28 +468,6 @@ public sealed partial class ComputeShaderPanel
             // Main render loop, until cancellation is requested
             while (!@this.isCancellationRequested)
             {
-                // Update the resolution mode, if needed
-                if (isDynamicResolutionEnabled != @this.isDynamicResolutionEnabled)
-                {
-                    isDynamicResolutionEnabled = !isDynamicResolutionEnabled;
-
-                    if (isDynamicResolutionEnabled)
-                    {
-                        DynamicResolutionManager.Create(out frameTimeWatcher);
-                    }
-                    else
-                    {
-                        @this.targetResolutionScale = @this.resolutionScale;
-                    }
-                }
-
-                // Evaluate the dynamic resolution frame time step, if the mode is enabled
-                if (isDynamicResolutionEnabled &&
-                    frameTimeWatcher.Advance(frameStopwatch.ElapsedTicks, ref @this.targetResolutionScale))
-                {
-                    @this.isResizePending = true;
-                }
-
                 while (frameStopwatch.ElapsedTicks < targetFrameTimeInTicksFor61fps)
                 {
                 }
