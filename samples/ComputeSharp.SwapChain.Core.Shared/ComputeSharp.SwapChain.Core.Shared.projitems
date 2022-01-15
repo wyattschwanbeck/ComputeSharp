@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\ComputeShader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DebugAnalyticsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IAnalyticsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\GooRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\ContouredLayersRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
   </ItemGroup>

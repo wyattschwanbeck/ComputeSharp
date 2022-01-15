@@ -101,6 +101,7 @@ public sealed class MainViewModel : ObservableObject
     /// </summary>
     public IReadOnlyList<ComputeShader> ComputeShaderOptions { get; } = new ComputeShader[]
     {
+        new("Goo", new GooRunner()),
         new("Colorful infinity", new ShaderRunner<ColorfulInfinity>(static time => new((float)time.TotalSeconds))),
         new("Extruded truchet", new ShaderRunner<ExtrudedTruchetPattern>(static time => new((float)time.TotalSeconds))),
         new("Fractal tiling", new ShaderRunner<FractalTiling>(static time => new((float)time.TotalSeconds))),
